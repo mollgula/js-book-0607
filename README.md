@@ -15,7 +15,15 @@ README.mdを編集して、「【ここにConsoleログを記入】」の部分�
 - ログ（入力したコードと実行結果）をコピーして、下記に貼り付ける
 
 ```
-【ここにConsoleログを記入】
+function sum() {
+    var total = 0;
+    for (var counter = 1; counter <= 10; counter++ ) {
+        total += counter;
+    }
+    window.alert(total);
+    } 
+undefined
+55
 ```
 
 ### 4-2-1 引数 (p.81)
@@ -28,7 +36,14 @@ README.mdを編集して、「【ここにConsoleログを記入】」の部分�
 - ログをコピーして、下記に貼り付ける
 
 ```
-【ここにConsoleログを記入】
+function sum(rangeTo) {
+    var total = 0;
+    for (var counter = 1; counter <= rangeTo; counter++ ) {
+        total += counter;
+    }
+    window.alert(total);
+    } 
+undefined
 ```
 
 - p.82 リスト4.3: `list4-3.js` に記入する
@@ -40,7 +55,14 @@ README.mdを編集して、「【ここにConsoleログを記入】」の部分�
 - ログをコピーして、下記に貼り付ける
 
 ```
-【ここにConsoleログを記入】
+function sum(rangeForm,rangeTo) {
+    var total = 0;
+    for (var counter = 1; counter <= rangeTo; counter++ ) {
+        total += counter;
+    }
+    window.alert(total);
+    } 
+undefined
 ```
 
 以下、p.83「4-2-2 デフォルト引数」の上の行までは、自分で読んでください（入力は不要）。
@@ -57,7 +79,15 @@ README.mdを編集して、「【ここにConsoleログを記入】」の部分�
 - ログをコピーして、下記に貼り付ける
 
 ```
-【ここにConsoleログを記入】
+function sum(rangeForm,rangeTo = 10) {
+    var total = 0;
+    for (var counter = rangeForm; counter <= rangeTo; counter++ ) {
+        total += counter;
+    }
+    window.alert(total);
+    } 
+undefined
+
 ```
 
 - **ここでGit(SourceTree)でステージング→commitしてください。**
@@ -70,7 +100,10 @@ README.mdを編集して、「【ここにConsoleログを記入】」の部分�
 - （p.89 Columnは記入不要（以下も同様））
 
 ```
-【ここにConsoleログを記入】
+total;
+0
+sum(2,5);
+undefined
 ```
 
 ### 4-2-4 返り値 (p.88 中央)
@@ -82,7 +115,56 @@ README.mdを編集して、「【ここにConsoleログを記入】」の部分�
 - ログをコピーして、下記に貼り付ける
 
 ```
-【ここにConsoleログを記入】
+var total = 0;
+function sum(rangeForm, rangeTo) {
+    for (var counter = rangeFrom; counter <= rangeTo; counter++) {
+        total += counter;
+    }
+}
+undefined
+sum(1, 10);
+VM252:3 Uncaught ReferenceError: rangeFrom is not defined
+    at sum (<anonymous>:3:24)
+    at <anonymous>:1:1
+sum @ VM252:3
+(anonymous) @ VM254:1
+window.alert(total);
+undefined
+0
+0
+sum(1, 10);
+VM252:3 Uncaught ReferenceError: rangeFrom is not defined
+    at sum (<anonymous>:3:24)
+    at <anonymous>:1:1
+sum @ VM252:3
+(anonymous) @ VM304:1
+window.alert(total);
+undefined
+110
+110
+function sum(rangeForm, rangeTo) {
+    var total = 0;
+    for (var counter = rangeForm; counter <= rangeTo; counter++ ) {
+        total += counter;
+    }
+    return total;
+} 
+
+undefined
+sum(1,10);
+
+55
+
+function isNarrow() {
+    return window.innerWidth < 1000; 
+}
+undefined
+if (isNarrow()) {
+    window.alert('狭いです');
+} else {
+    window.alert('広いです');
+}
+undefined
 ```
 
 ### 4-3-1 配列の作り方 (p.95)
@@ -92,7 +174,50 @@ README.mdを編集して、「【ここにConsoleログを記入】」の部分�
 - （p.98 Columnは記入不要）
 
 ```
-【ここにConsoleログを記入】
+var sampleArray = [];
+undefined
+sampleArray = [];
+[]
+sampleArray = [1, 3, 5];
+(3) [1, 3, 5]
+sampleArray;
+(3) [1, 3, 5]
+var sampleArray = [];
+undefined
+sampleArray.push(59);
+1
+sampleArray;
+[59]0: 59length: 1__proto__: Array(0)
+sampleArray.push(61);
+2
+sampleArray;
+(2) [59, 61]
+sampleArray[0];
+59
+sampleArray[1];
+61
+sampleArray[2];
+undefined
+sampleArray.splice(0, 1);
+[59]
+sampleArray
+[61]
+sampleArray;
+[61]
+sampleArray.push(67);
+2
+sampleArray.push(71);
+3
+sampleArray.push(73);
+4
+sampleArray;
+(4) [61, 67, 71, 73]
+sampleArray.splice(1, 2);
+(2) [67, 71]
+sampleArray;
+(2) [61, 73]
+sampleArray.length;
+2
 ```
 
 ### 4-3-3 関数と組み合わせて使う (p.99)
@@ -101,7 +226,46 @@ README.mdを編集して、「【ここにConsoleログを記入】」の部分�
 - p.99～101（「確認テスト」の上まで） 黒い枠で囲まれた部分（白地）をConsoleで実行する
 
 ```
-【ここにConsoleログを記入】
+function calculateTaxIncluding(prices) {
+    var results =[];
+    for (var index = 0, length = prices.length; index < length; index++)
+    {
+
+      results.push(prices[index] * 1.08);
+    }
+    return results;
+}
+undefined
+calculateTaxIncluding([100, 200, 40, 50]);
+(4) [108, 216, 43.2, 54]
+var a = [0, 1, 1, 2, 3, 5, 8];
+undefined
+a.toString();
+"0,1,1,2,3,5,8"
+var a = [0, 1, 1, 2, 3, 5, 8];
+undefined
+a.join(' and ');
+"0 and 1 and 1 and 2 and 3 and 5 and 8"
+var a = [0, 1, 1, 2, 3, 5, 8];
+undefined
+a.indexOf(5);
+5
+var a = [0, 1, 1, 2, 3, 5, 8];
+undefined
+a.indexOf(4);
+-1
+var a = [0, 1, 1, 2, 3, 5, 8];
+undefined
+a.indexOf(1);
+1
+var a = [0, 1, 1, 2, 3, 5, 8];
+undefined
+a.lastndexOf(1);
+VM1989:1 Uncaught TypeError: a.lastndexOf is not a function
+    at <anonymous>:1:3
+(anonymous) @ VM1989:1
+a.lastIndexOf(1);
+2
 ```
 
 - **ここでGit(SourceTree)でステージング→commitしてください。**
